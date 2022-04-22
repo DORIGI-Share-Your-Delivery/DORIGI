@@ -1,17 +1,17 @@
 version: "3"
 
 services:
-  frontend:
-    #Dockerfile의 경로
-    build: ./frontend
-    command: ["npm", "start"]
-    ports:
-      - 3000:3000
-    networks:
-      - app-tier
-    # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리(작업공간 app으로 설정해줌 -> frontend/Dockerfile)
-    volumes:
-      - ./frontend:/app
+  # frontend:
+  #   #Dockerfile의 경로
+  #   build: ./frontend
+  #   command: ["npm", "start"]
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - app-tier
+  #   # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리(작업공간 app으로 설정해줌 -> frontend/Dockerfile)
+  #   volumes:
+  #     - ./frontend:/app
   backend:
     build: ./backend
     ports:
