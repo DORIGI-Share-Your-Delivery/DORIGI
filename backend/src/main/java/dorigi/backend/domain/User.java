@@ -2,7 +2,7 @@ package dorigi.backend.domain;
 
 public class User {
 
-    double user_id;
+    Long user_id;
     String id;
     String password;
     String nickname;
@@ -12,11 +12,11 @@ public class User {
     boolean gender;
     String profile_img;
 
-    public double getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(double user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
@@ -26,14 +26,6 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getNickname() {
