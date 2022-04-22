@@ -1,6 +1,6 @@
 package dorigi.backend.domain;
 
-public class Member {
+public class User {
 
     double user_id;
     String id;

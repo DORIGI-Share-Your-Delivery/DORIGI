@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SimpleController {
     @GetMapping("/")
-    String test(Model model){
-        model.addAttribute("data","김용민");
+    public String test(){
+        System.out.println("접속 확인");
         return "home";
     }
 }

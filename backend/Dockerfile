@@ -5,7 +5,7 @@ FROM openjdk:11-jdk
 WORKDIR /app
 
 #https://iagreebut.tistory.com/171?category=887117
-#jar파일 생성 후 복
+#jar파일 복사
 ADD build/libs/backend-0.0.1-SNAPSHOT.jar /app/app.jar
 
 #컨테이너가 실행될 때 명령어 수행
