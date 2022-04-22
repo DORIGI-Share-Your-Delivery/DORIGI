@@ -15,6 +15,7 @@ import Restaurant from "./Pages/Restaurant";
 import Chatting from "./Pages/Chatting";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import Login from "./Pages/Login";
 
 
 const theme = createTheme();
@@ -41,6 +42,7 @@ function App() {
               <Route path="/" element={<Main/>}/>
               <Route path="/board" element={<Board/>}/>
               <Route path="/chat" element={<Chatting/>}/>
+              <Route path="/login" element={<Login/>}/>
               <Route path="/restaurant" element={<Restaurant/>}/>
           </Routes>
           <Footer title={"title"} description={"@DORIGI, Inc. 2022. 2022-DORIGI-TeamI"}/>
