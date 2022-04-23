@@ -1,0 +1,13 @@
+.susususususu{
+    display: flex;
+}
+
+.picture{
+    width: 50%;
+    background-color: red;
+}
+
+.loginPage{
+    width: 50%;
+    background-color: blue;
+}
