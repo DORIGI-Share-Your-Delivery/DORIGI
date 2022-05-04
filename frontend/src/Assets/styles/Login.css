@@ -1,0 +1,13 @@
+.loginBody{
+    display: flex;
+}
+
+.leftSide{
+    width: 40%;
+    background-color: red;
+}
+
+.rightSide{
+    width:60%;
+    background-color: blue;
+}
