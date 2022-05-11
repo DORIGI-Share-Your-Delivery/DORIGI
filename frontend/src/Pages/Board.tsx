@@ -158,7 +158,7 @@ function RestaurantSelection() {
                     }}
                 >
                     <Grid container spacing={1}>
-                        <Grid item xs={11.3} marginLeft={1.5}>
+                        <Grid item xs={11} marginLeft={1.5}>
                             <TextField
                                 id="standard-basic"
                                 label="주소, 음식 검색"
