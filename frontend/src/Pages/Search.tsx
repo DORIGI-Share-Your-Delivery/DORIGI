@@ -42,7 +42,7 @@ function SearchTitle({ values }: { values: any }) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-                marginBottom={3}
+                margin={3}
             >
                 <Grid item>
                     <Typography display="inline" variant="h3">
@@ -147,6 +147,7 @@ function Search() {
             direction="column"
             justifyContent="flex-start"
             alignItems="center"
+            spacing={4}
         >
             <Grid item>
                 <SearchBar
@@ -154,6 +155,7 @@ function Search() {
                     setSelected={setSelected}
                     search={search}
                     setSearch={setSearch}
+                    height={150}
                 />
             </Grid>
             <Grid item>

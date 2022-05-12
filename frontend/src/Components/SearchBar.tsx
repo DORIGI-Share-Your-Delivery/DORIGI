@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Select, Typography } from "@mui/material";
 import { Grid, Box, MenuItem, TextField, Button, styled } from "@mui/material";
 
@@ -9,6 +9,7 @@ interface IsearchBarInterface {
     setSearch: React.Dispatch<React.SetStateAction<string | null>>;
     selected: string | null;
     setSelected: React.Dispatch<React.SetStateAction<string | null>>;
+    height: number;
 }
 
 interface ISelectFiledInterface {
@@ -36,6 +37,7 @@ const SearchTextField = styled(TextField)({
     width: 700,
     height: materialHeight,
     lineHeight: materialHeight,
+    backgroundColor: "white",
 });
 
 function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
@@ -70,7 +72,7 @@ function SelectFiled({ selected, setSelected }: ISelectFiledInterface) {
             onChange={(e) => {
                 setSelected(e.target.value);
             }}
-            sx={{ width: 100 }}
+            sx={{ height: 55, width: 100, backgroundColor: "white" }}
         >
             <MenuItem value={"all"}>전체</MenuItem>
             <MenuItem value={"menu"}>메뉴</MenuItem>
@@ -99,15 +101,36 @@ function SearchBar({
     selected,
     setSearch,
     setSelected,
+    height,
 }: IsearchBarInterface) {
     const url =
         selected === "all" && search === ""
             ? `search/${selected}/${search}`
             : `http://localhost:3000/search/${selected}/${search}`;
 
+    const imageUrl =
+        "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg";
+
     return (
-        <Grid container direction="column" justifyContent="center">
-            <Grid container direction="row" justifyContent="center">
+        <Grid
+            container
+            direction="column"
+            justifyContent="center"
+            sx={{
+                backgroundImage: `url(${imageUrl})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                // opacity: "0.5",
+            }}
+        >
+            <Grid item width={1700} height={height / 2}></Grid>
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+            >
                 <SelectFiled selected={selected} setSelected={setSelected} />
                 <SearchField search={search} setSearch={setSearch} />
                 <SearchButton variant="contained" href={url}>
@@ -117,6 +140,7 @@ function SearchBar({
             <Grid container direction="row" justifyContent="center">
                 <SuggestedKeyword search={search} setSearch={setSearch} />
             </Grid>
+            <Grid item height={height / 2}></Grid>
         </Grid>
     );
 }
