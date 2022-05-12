@@ -1,5 +1,5 @@
 import { ThemeProvider, createTheme } from "@mui/material";
-import { Box, Grid, styled, Paper, Typography } from "@mui/material";
+import { Link, Grid, styled, Paper, Typography } from "@mui/material";
 
 interface IRestaurantBoxinterface {
     restaurant: Restaurant;
@@ -20,6 +20,8 @@ const RestaurantBoxContainer = styled(Paper)({
 });
 
 function RestaurantDetail({ name, address, pNumber }: Partial<Restaurant>) {
+    const url = `http://localhost:3000/restaurant/${name}`;
+
     const theme = createTheme({
         typography: {
             subtitle1: {
@@ -34,10 +36,18 @@ function RestaurantDetail({ name, address, pNumber }: Partial<Restaurant>) {
             },
         },
     });
+    const Title = styled(Link)({
+        fontSize: 20,
+        fontWeight: 500,
+        marginLeft: 20,
+        color: "black",
+    });
 
     return (
         <ThemeProvider theme={theme}>
-            <Typography>{name}</Typography>
+            <Title href={url} underline="none">
+                {name}
+            </Title>
             <Typography variant="subtitle1">주 소</Typography>
             <Typography>{address}</Typography>
             <Typography variant="subtitle1">전화번호</Typography>
@@ -48,7 +58,7 @@ function RestaurantDetail({ name, address, pNumber }: Partial<Restaurant>) {
 
 function RestaurantImage({ img }: Partial<Restaurant>) {
     return (
-        <Grid container spacing={0}>
+        <Grid container spacing={1} marginBottom={3}>
             <Grid item xs={12}>
                 <div style={{ height: "25px" }} />
                 <div
