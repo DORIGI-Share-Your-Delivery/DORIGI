@@ -1,5 +1,7 @@
 import { Box } from "@mui/material";
 
-function RestaurantBox() {}
+function RestaurantBox() {
+    return <div></div>;
+}
 
 export default RestaurantBox;

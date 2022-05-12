@@ -4,6 +4,15 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { Grid, Box, MenuItem, TextField, Button, styled } from "@mui/material";
 import { Typography } from "@mui/material";
 
+const materialHeight: number = 55;
+
+interface IsearchBarInterface {
+    search: string | null;
+    setSearch: React.Dispatch<React.SetStateAction<string | null>>;
+    selected: string | null;
+    setSelected: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
 interface ISelectFiledInterface {
     selected: string | null;
     setSelected: React.Dispatch<React.SetStateAction<string | null>>;
@@ -20,15 +29,15 @@ interface ISuggestedKeyword {
 }
 
 const SearchButton = styled(Button)({
-    height: 55,
+    height: materialHeight,
     width: 100,
-    lineHeight: 55,
+    lineHeight: materialHeight,
 });
 
 const SearchTextField = styled(TextField)({
     width: 700,
-    height: 55,
-    lineHeight: 55,
+    height: materialHeight,
+    lineHeight: materialHeight,
 });
 
 function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
@@ -87,9 +96,11 @@ function SearchField({ search, setSearch }: ISearchFiledInterface) {
     );
 }
 
-function SearchBar() {
-    const [selected, setSelected] = useState<string | null>("all");
-    const [search, setSearch] = useState<string | null>("");
+function SearchBar(props: IsearchBarInterface) {
+    const search = props.search;
+    const selected = props.selected;
+    const setSearch = props.setSearch;
+    const setSelected = props.setSelected;
 
     return (
         <Grid container direction="column" justifyContent="center">
