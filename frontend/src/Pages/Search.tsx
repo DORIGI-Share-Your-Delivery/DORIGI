@@ -1,8 +1,10 @@
-import { Button, Grid, Typography, styled } from "@mui/material";
-import SearchBar from "../Components/SearchBar";
-import RestaurantBox from "../Components/RestaurantBox";
+import { Button, Grid, Typography, styled, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import SearchBar from "../Components/SearchBar";
+import RestaurantBox from "../Components/RestaurantBox";
+import PostLists from "../Components/PostLists";
 
 const SubTitle = styled(Typography)({
     display: "inline",
@@ -10,6 +12,14 @@ const SubTitle = styled(Typography)({
     color: "dimgray",
     marginLeft: "20px",
 });
+
+interface Post {
+    postNum: number;
+    postName: string;
+    postWriter: string;
+    postTime: string;
+    postViews: number;
+}
 
 interface Restaurant {
     name: string;
@@ -22,6 +32,27 @@ interface ISearcTitleinterface {
     selected: string | null;
     search: string | null;
     values: any;
+}
+
+function SearchTitle({ values }: { values: any }) {
+    return (
+        <Box sx={{ width: "900px" }}>
+            <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                marginBottom={3}
+            >
+                <Grid item>
+                    <Typography display="inline" variant="h3">
+                        "{values.searchValue}"
+                    </Typography>
+                    <SubTitle sx={{ fontSize: "36px" }}>검색 결과</SubTitle>
+                </Grid>
+            </Grid>
+        </Box>
+    );
 }
 
 function SearchRestaurantTitle({
@@ -86,10 +117,6 @@ function SearchPostsTitle({ selected, search, values }: ISearcTitleinterface) {
     );
 }
 
-function PostLists() {
-    return;
-}
-
 function RestaurantCard() {
     return (
         <Grid container spacing={4} direction="row">
@@ -130,11 +157,15 @@ function Search() {
                 />
             </Grid>
             <Grid item>
+                <SearchTitle values={values} />
+            </Grid>
+            <Grid item>
                 <SearchPostsTitle
                     search={search}
                     selected={selected}
                     values={values}
                 />
+                <PostLists posts={posts} />
             </Grid>
             <Grid item>
                 <SearchRestaurantTitle
@@ -166,6 +197,58 @@ const restaurantList: Restaurant[] = [
         address: "서울 마포구 창전동 309 1층 3호",
         pNumber: "050-7982-4595",
         img: "https://www.mirae-biz.com/news/photo/201711/35236_28789_1052.jpg",
+    },
+];
+
+const posts: Post[] = [
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
+    },
+    {
+        postNum: 1123,
+        postName: "안녕하세요",
+        postWriter: "료쿠만",
+        postTime: "12:30",
+        postViews: 12,
     },
 ];
 
