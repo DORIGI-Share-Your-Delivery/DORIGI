@@ -31,12 +31,9 @@ function Search() {
     const values = useParams();
 
     useEffect(() => {
-        console.log(search);
-        console.log(selected);
+        if (values.searchValue != null) setSearch(values.searchValue);
+        if (values.selectedValue != null) setSelected(values.selectedValue);
     }, []);
-
-    if (values.searchValue != null) setSearch(values.searchValue);
-    if (values.selectedValue != null) setSelected(values.selectedValue);
 
     return (
         <Grid

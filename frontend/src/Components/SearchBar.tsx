@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Select, Typography } from "@mui/material";
 import { Grid, Box, MenuItem, TextField, Button, styled } from "@mui/material";
 
@@ -100,15 +100,17 @@ function SearchBar(props: IsearchBarInterface) {
     const setSearch = props.setSearch;
     const setSelected = props.setSelected;
 
+    const url =
+        selected === "all" && search === ""
+            ? `search/${selected}/${search}`
+            : "http://localhost:3000/search/${selected}/${search}";
+
     return (
         <Grid container direction="column" justifyContent="center">
             <Grid container direction="row" justifyContent="center">
                 <SelectFiled selected={selected} setSelected={setSelected} />
                 <SearchField search={search} setSearch={setSearch} />
-                <SearchButton
-                    variant="contained"
-                    href={`search/${selected}/value=${search}`}
-                >
+                <SearchButton variant="contained" href={url}>
                     검색
                 </SearchButton>
             </Grid>
