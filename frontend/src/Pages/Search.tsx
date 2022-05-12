@@ -1,14 +1,93 @@
-import { Grid } from "@mui/material";
+import { Button, Grid, Typography, styled } from "@mui/material";
 import SearchBar from "../Components/SearchBar";
 import RestaurantBox from "../Components/RestaurantBox";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+const SubTitle = styled(Typography)({
+    display: "inline",
+    fontSize: "24px",
+    color: "dimgray",
+    marginLeft: "20px",
+});
 
 interface Restaurant {
     name: string;
     address: string;
     pNumber: string;
     img: string;
+}
+
+interface ISearcTitleinterface {
+    selected: string | null;
+    search: string | null;
+    values: any;
+}
+
+function SearchRestaurantTitle({
+    selected,
+    search,
+    values,
+}: ISearcTitleinterface) {
+    const url =
+        selected === "all" && search === ""
+            ? `search/restaurant/${search}`
+            : `http://localhost:3000/search/restaurant/${search}`;
+
+    return (
+        <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            marginBottom={3}
+        >
+            <Grid item>
+                <Typography display="inline" variant="h4">
+                    "{values.searchValue}"
+                </Typography>
+                <SubTitle>관련 음식점</SubTitle>
+            </Grid>
+            <Grid item>
+                <Button variant="text" sx={{ color: "dimgray" }} href={url}>
+                    더보기
+                </Button>
+            </Grid>
+        </Grid>
+    );
+}
+
+function SearchPostsTitle({ selected, search, values }: ISearcTitleinterface) {
+    const url =
+        selected === "all" && search === ""
+            ? `search/posts/${search}`
+            : `http://localhost:3000/search/posts/${search}`;
+
+    return (
+        <Grid
+            container
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            marginBottom={3}
+        >
+            <Grid item>
+                <Typography display="inline" variant="h4">
+                    "{values.searchValue}"
+                </Typography>
+                <SubTitle>관련 게시글</SubTitle>
+            </Grid>
+            <Grid item>
+                <Button variant="text" sx={{ color: "dimgray" }} href={url}>
+                    더보기
+                </Button>
+            </Grid>
+        </Grid>
+    );
+}
+
+function PostLists() {
+    return;
 }
 
 function RestaurantCard() {
@@ -51,6 +130,18 @@ function Search() {
                 />
             </Grid>
             <Grid item>
+                <SearchPostsTitle
+                    search={search}
+                    selected={selected}
+                    values={values}
+                />
+            </Grid>
+            <Grid item>
+                <SearchRestaurantTitle
+                    search={search}
+                    selected={selected}
+                    values={values}
+                />
                 <RestaurantCard />
             </Grid>
         </Grid>

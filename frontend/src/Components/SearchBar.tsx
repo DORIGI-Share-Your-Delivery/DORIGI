@@ -94,16 +94,16 @@ function SearchField({ search, setSearch }: ISearchFiledInterface) {
     );
 }
 
-function SearchBar(props: IsearchBarInterface) {
-    const search = props.search;
-    const selected = props.selected;
-    const setSearch = props.setSearch;
-    const setSelected = props.setSelected;
-
+function SearchBar({
+    search,
+    selected,
+    setSearch,
+    setSelected,
+}: IsearchBarInterface) {
     const url =
         selected === "all" && search === ""
             ? `search/${selected}/${search}`
-            : "http://localhost:3000/search/${selected}/${search}";
+            : `http://localhost:3000/search/${selected}/${search}`;
 
     return (
         <Grid container direction="column" justifyContent="center">
