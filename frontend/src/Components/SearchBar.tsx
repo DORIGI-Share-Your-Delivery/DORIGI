@@ -41,6 +41,11 @@ const SearchTextField = styled(TextField)({
 });
 
 function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
+    const url =
+        search === ""
+            ? `search/all/${search}`
+            : `http://localhost:3000/search/all/${search}`;
+
     return (
         <Box sx={{ width: 900 }}>
             <Typography margin={2} display="inline">
@@ -55,7 +60,7 @@ function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
                         onClick={(e) => {
                             setSearch(suggestions);
                         }} //둘중에 하나 선택해야 함
-                        href={`search/all?value=${search}`} //둘중에 하나 선택해야 함
+                        href={url} //둘중에 하나 선택해야 함
                     >
                         {suggestions}
                     </Button>
