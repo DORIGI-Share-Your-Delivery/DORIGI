@@ -47,8 +47,13 @@ function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
             : `http://localhost:3000/search/all/${search}`;
 
     return (
-        <Box sx={{ width: 900 }}>
-            <Typography margin={2} display="inline">
+        <Box style={{ width: "800px", textAlign: "left" }}>
+            <Typography
+                sx={{ fontSize: "16px" }}
+                margin={2}
+                display="inline"
+                variant="h6"
+            >
                 지금 뜨는 검색어
             </Typography>
             {Seggestions.map((suggestions, i: number) => {
