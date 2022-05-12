@@ -15,8 +15,8 @@ interface Restaurant {
 const RestaurantBoxContainer = styled(Paper)({
     width: 300,
     height: 450,
-    display: "elevation",
     borderRadius: "5%",
+    textAlign: "left",
 });
 
 function RestaurantDetail({ name, address, pNumber }: Partial<Restaurant>) {
@@ -50,8 +50,14 @@ function RestaurantImage({ img }: Partial<Restaurant>) {
     return (
         <Grid container spacing={0}>
             <Grid item xs={12}>
-                <div style={{ height: "10%" }} />
-                <div style={{ width: "90%", height: "90%", margin: "0 auto" }}>
+                <div style={{ height: "25px" }} />
+                <div
+                    style={{
+                        width: "260px",
+                        height: "180px",
+                        margin: "0 auto",
+                    }}
+                >
                     <img src={img} style={{ width: "100%", height: "100%" }} />
                 </div>
             </Grid>

@@ -28,6 +28,8 @@ const sections: section[] = [
 ];
 
 function App() {
+    const test: string | null = null;
+
     return (
         <Router>
             <div className="App">
@@ -39,7 +41,12 @@ function App() {
                         <Route path="/chat" element={<Chatting />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/restaurant" element={<Restaurant />} />
-                        <Route path="/search" element={<Search />} />
+                        <Route path="/search" element={<Search />}>
+                            <Route
+                                path="/search/:selectedValue/:searchValue"
+                                element={<Search />}
+                            />
+                        </Route>
                     </Routes>
                     <Footer
                         title={"title"}

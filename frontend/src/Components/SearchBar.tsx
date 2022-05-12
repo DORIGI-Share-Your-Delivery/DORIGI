@@ -107,7 +107,7 @@ function SearchBar(props: IsearchBarInterface) {
                 <SearchField search={search} setSearch={setSearch} />
                 <SearchButton
                     variant="contained"
-                    href={`search/${selected}?value=${search}`}
+                    href={`search/${selected}/value=${search}`}
                 >
                     검색
                 </SearchButton>
