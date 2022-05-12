@@ -1,66 +1,115 @@
 import React from "react";
-import { Grid, Box, Select, MenuItem } from "@mui/material";
 import { useState } from "react";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Grid, Box, MenuItem, TextField, Button, styled } from "@mui/material";
+import { Typography } from "@mui/material";
 
-interface StateInterface {
-    searchValue: string | null;
-    setSearchValue: React.Dispatch<React.SetStateAction<string | null>>;
-    selectedValue: string | null;
-    setSelectedValue: React.Dispatch<React.SetStateAction<string | null>>;
+interface ISelectFiledInterface {
+    selected: string | null;
+    setSelected: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-function SuggestedKeyword() {}
+interface ISearchFiledInterface {
+    search: string | null;
+    setSearch: React.Dispatch<React.SetStateAction<string | null>>;
+}
 
-function SearchField({
-    searchValue,
-    setSearchValue,
-    selectedValue,
-    setSelectedValue,
-}: StateInterface) {
+interface ISuggestedKeyword {
+    search: string | null;
+    setSearch: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+const SearchButton = styled(Button)({
+    height: 55,
+    width: 100,
+    lineHeight: 55,
+});
+
+const SearchTextField = styled(TextField)({
+    width: 700,
+    height: 55,
+    lineHeight: 55,
+});
+
+function SuggestedKeyword({ search, setSearch }: ISuggestedKeyword) {
+    return (
+        <Box sx={{ width: 900 }}>
+            <Typography margin={2} display="inline">
+                지금 뜨는 검색어
+            </Typography>
+            {Seggestions.map((suggestions, i: number) => {
+                return (
+                    <Button
+                        style={{ margin: "10px" }}
+                        variant="contained"
+                        key={i}
+                        onClick={(e) => {
+                            setSearch(suggestions);
+                        }} //둘중에 하나 선택해야 함
+                        href={`search/all?value=${search}`} //둘중에 하나 선택해야 함
+                    >
+                        {suggestions}
+                    </Button>
+                );
+            })}
+        </Box>
+    );
+}
+
+function SelectFiled({ selected, setSelected }: ISelectFiledInterface) {
+    return (
+        <Select
+            value={selected}
+            onChange={(e) => {
+                setSelected(e.target.value);
+            }}
+            sx={{ width: 100 }}
+        >
+            <MenuItem value={"all"}>전체</MenuItem>
+            <MenuItem value={"menu"}>메뉴</MenuItem>
+            <MenuItem value={"restaurant"}>음식점</MenuItem>
+            <MenuItem value={"posts"}>게시글</MenuItem>
+        </Select>
+    );
+}
+
+function SearchField({ search, setSearch }: ISearchFiledInterface) {
     return (
         <Box>
-            <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-            >
-                <Grid item>
-                    <Select
-                        labelId="demo-simple-select-standard-label"
-                        label="Age"
-                        value={searchValue}
-                        onChange={(event) => {
-                            setSelectedValue(event.target.value);
-                            console.log(selectedValue);
-                        }}
-                    >
-                        <MenuItem>전체</MenuItem>
-                        <MenuItem>메뉴</MenuItem>
-                        <MenuItem>음식점</MenuItem>
-                        <MenuItem>게시글</MenuItem>
-                    </Select>
-                </Grid>
-                <Grid item></Grid>
-            </Grid>
+            <SearchTextField
+                variant="outlined"
+                value={search}
+                onChange={(e) => {
+                    setSearch(e.target.value);
+                }}
+            ></SearchTextField>
         </Box>
     );
 }
 
 function SearchBar() {
-    const [selectedValue, setSelectedValue] = useState<string | null>("");
-    const [searchValue, setSearchValue] = useState<string | null>("");
+    const [selected, setSelected] = useState<string | null>("all");
+    const [search, setSearch] = useState<string | null>("");
 
     return (
-        <div>
-            <SearchField
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                selectedValue={selectedValue}
-                setSelectedValue={setSelectedValue}
-            />
-        </div>
+        <Grid container direction="column" justifyContent="center">
+            <Grid container direction="row" justifyContent="center">
+                <SelectFiled selected={selected} setSelected={setSelected} />
+                <SearchField search={search} setSearch={setSearch} />
+                <SearchButton
+                    variant="contained"
+                    href={`search/${selected}?value=${search}`}
+                >
+                    검색
+                </SearchButton>
+            </Grid>
+            <Grid container direction="row" justifyContent="center">
+                <SuggestedKeyword search={search} setSearch={setSearch} />
+            </Grid>
+        </Grid>
     );
 }
+
+const Seggestions: string[] = ["떡볶이", "베스킨라빈스", "떡튀순"]; // 추천 검색어 정보 (배열로 API에서 받아올 것들)
 
 export default SearchBar;
