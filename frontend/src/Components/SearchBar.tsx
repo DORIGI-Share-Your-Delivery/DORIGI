@@ -2,6 +2,12 @@ import React from "react";
 import { Select, Typography } from "@mui/material";
 import { Grid, Box, MenuItem, TextField, Button, styled } from "@mui/material";
 
+// 검색창 제작 컴포넌트
+// props : [search , setsearch] , [selected , setselected] , height
+// 각각 텍스트필드에 입력된 값을 받는 state,
+// 셀렉트 필드에 입력된 값을 받는 state,
+// 뒷 배경의 높이를 설정하는 height 이다.
+
 const materialHeight: number = 55;
 
 interface IsearchBarInterface {
@@ -131,7 +137,6 @@ function SearchBar({
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                // opacity: "0.5",
             }}
         >
             <Grid item width={1700} height={height / 2}></Grid>

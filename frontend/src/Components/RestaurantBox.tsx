@@ -1,6 +1,12 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import { Link, Grid, styled, Paper, Typography } from "@mui/material";
 
+// 식당 카드 제작 컴포넌트,
+// porps : restaurant
+// restaurant은 총 네 개의 값을 가진 객체이다.
+// restaurant props : name , address , pNumber , img
+// 모든 값은 각각 식당의 이름, 주소, 전화번호, 이미지이며, 위 키값들은 추후 이름이 바뀔 수 있다.
+
 interface IRestaurantBoxinterface {
     restaurant: Restaurant;
 }
