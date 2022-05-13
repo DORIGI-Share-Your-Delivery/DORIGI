@@ -11,6 +11,8 @@ import Chatting from "./Pages/Chatting";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Login from "./Pages/Login";
+import Search from "./Pages/Search";
+import ErrorPage from "./Pages/ErrorPage";
 
 const theme = createTheme();
 
@@ -33,11 +35,18 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <Header sections={sections} />
                     <Routes>
+                        <Route path="/*" element={<ErrorPage />} />
                         <Route path="/" element={<Main />} />
                         <Route path="/board" element={<Board />} />
                         <Route path="/chat" element={<Chatting />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/restaurant" element={<Restaurant />} />
+                        <Route path="/search" element={<Search />}>
+                            <Route
+                                path="/search/:selectedValue/:searchValue"
+                                element={<Search />}
+                            />
+                        </Route>
                     </Routes>
                     <Footer
                         title={"title"}

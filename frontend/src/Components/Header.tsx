@@ -62,8 +62,10 @@ function Header(props: { sections: section[] }) {
                                 justifyContent: "space-between",
                             }}
                         >
-                            {sections.map((section) => (
+                            {/* 키값 에러가 자꾸 떠서 키값 추가 */}
+                            {sections.map((section, i: number) => (
                                 <Link
+                                    key={i}
                                     style={{
                                         textDecoration: "none",
                                         color: "#616161",
