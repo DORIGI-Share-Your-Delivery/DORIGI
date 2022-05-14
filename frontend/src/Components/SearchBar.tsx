@@ -137,6 +137,7 @@ function SearchBar({
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
+                padding: "0",
             }}
         >
             <Grid item width={1700} height={height / 2}></Grid>

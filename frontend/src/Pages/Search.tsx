@@ -42,7 +42,6 @@ function SearchTitle({ values }: { values: any }) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-                margin={3}
             >
                 <Grid item>
                     <Typography display="inline" variant="h3">

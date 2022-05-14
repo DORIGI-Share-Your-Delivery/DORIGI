@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SearchBar from "../Components/SearchBar";
 import PostLists from "../Components/PostLists";
-import { useParams } from "react-router-dom";
 import { Grid, Box, Typography, styled, Button, Stack } from "@mui/material";
 
 interface Post {
@@ -27,7 +26,7 @@ function ResultTitle({ title }: { title: string | null }) {
                 direction="row"
                 justifyContent="space-between"
                 alignItems="center"
-                margin={3}
+                margin={1}
             >
                 <Grid item>
                     <Typography display="inline" variant="h3">
@@ -40,7 +39,7 @@ function ResultTitle({ title }: { title: string | null }) {
     );
 }
 
-function AddClass() {
+function AddCategory() {
     const height: number = 55;
     const CategoryBtn = styled(Button)({
         display: "inline",
@@ -86,7 +85,7 @@ function Board() {
     const title: string | null = "신촌동";
 
     return (
-        <Grid container justifyContent="center" spacing={10}>
+        <Grid container justifyContent="center" spacing={3}>
             <Grid item>
                 <SearchBar
                     search={search}
@@ -98,7 +97,11 @@ function Board() {
             </Grid>
             <Grid item>
                 <ResultTitle title={title} />
-                <AddClass />
+            </Grid>
+            <Grid item>
+                <AddCategory />
+            </Grid>
+            <Grid item>
                 <PostLists posts={posts} />
             </Grid>
         </Grid>
@@ -106,6 +109,146 @@ function Board() {
 }
 
 const posts: Post[] = [
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
     {
         postNum: 123,
         postName: "hello",

@@ -34,7 +34,11 @@ function PostLists({ posts }: IpostListsinterface) {
                             <Grid item xs textAlign="center">
                                 <a
                                     href={url + post.postNum}
-                                    style={{ textDecoration: "none" }}
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "black",
+                                        fontFamily: "SpoqaRegular",
+                                    }}
                                 >
                                     {post.postName}
                                 </a>
