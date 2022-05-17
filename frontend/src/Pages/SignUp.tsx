@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TextField, Box, Slider, Button, Grid } from "@mui/material/";
+import { TextField, Box, Slider, Button, Grid, styled } from "@mui/material/";
 
 const marks = [
     {
@@ -41,65 +41,85 @@ function SetDistance() {
 
 function TextFieldSet() {
     return (
-        <div>
-            <TextField
-                required
-                id="outlined-id"
-                label="ID"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-
-            <TextField
-                id="outlined-password"
-                label="PASSWORD"
-                placeholder="비밀번호"
-                type="password"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <TextField
-                id="outlinded-password-check"
-                label="PASSWORD CHECK"
-                placeholder="비밀번호 재입력"
-                type="password"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <TextField
-                id="filled-basic"
-                label="NICKNAME"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <TextField
-                id="filled-basic"
-                label="EMAIL"
-                placeholder="이메일 주소"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <TextField
-                id="outlined-number"
-                label="PHONE NUMBER"
-                type="number"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-            <TextField
-                id="outlined-number"
-                label="ADDRESS"
-                InputLabelProps={{
-                    shrink: true,
-                }}
-            />
-        </div>
+        <Grid
+            container
+            direction="column"
+            justifyContent="flex-start"
+            alignItems="flex-start"
+            spacing={2}
+        >
+            <Grid item>
+                <TextField
+                    required
+                    label="ID"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="PASSWORD"
+                    placeholder="비밀번호"
+                    type="password"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="PASSWORD CHECK"
+                    placeholder="비밀번호 재입력"
+                    type="password"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="NICKNAME"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="EMAIL"
+                    placeholder="이메일 주소"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="PHONE NUMBER"
+                    type="number"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="ADDRESS"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+            <Grid item>
+                <TextField
+                    label="동네범위"
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </Grid>
+        </Grid>
     );
 }
 
@@ -107,22 +127,37 @@ function SingUpTitle() {
     const imageUrl =
         "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg";
     return (
-        <Box
+        <Grid
+            justifyContent="center"
+            alignItems="center"
+            container
             style={{
-                backgroundImage: imageUrl,
-                width: "1200px",
+                backgroundImage: `url(${imageUrl})`,
+                width: "1700px",
                 height: "150px",
             }}
         >
-            <span style={{ fontFamily: "SpoqaBold", fontSize: "36px" }}>
-                DORIGI
-            </span>
-            <span style={{ fontFamily: "SpoqaThin", fontSize: "36px" }}>
-                Sign Up
-            </span>
-        </Box>
+            <Grid item>
+                <span
+                    style={{
+                        fontFamily: "SpoqaBold",
+                        fontSize: "36px",
+                        marginTop: "52.5px",
+                    }}
+                >
+                    DORIGI
+                </span>
+                <span style={{ fontFamily: "SpoqaThin", fontSize: "36px" }}>
+                    Sign Up
+                </span>
+            </Grid>
+        </Grid>
     );
-}
+} //끝
+
+const GridItem = styled(Grid)({
+    width: "70%",
+});
 
 export default function SignUp() {
     return (
@@ -132,17 +167,18 @@ export default function SignUp() {
             justifyContent="flex-start"
             alignItems="center"
             textAlign="center"
+            spacing={2}
         >
-            <Grid item>
+            <GridItem item>
                 <SingUpTitle />
-            </Grid>
-            <Grid item>
+            </GridItem>
+            <GridItem item>
                 <TextFieldSet />
-            </Grid>
-            <Grid item>
+            </GridItem>
+            <GridItem item>
                 <SetDistance />
-            </Grid>
-            <Grid item></Grid>
+            </GridItem>
+            <GridItem item></GridItem>
         </Grid>
     );
 }
