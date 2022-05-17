@@ -70,7 +70,7 @@ function Header(props: { sections: section[] }) {
                             },
                         }}
                     >
-                        <Button variant="contained" style={{marginRight:'10px'}}>
+                        <Button variant="contained" style={{marginRight:'10px'}} href="signUp">
                             signup
                         </Button>
                         <Button variant="outlined">
