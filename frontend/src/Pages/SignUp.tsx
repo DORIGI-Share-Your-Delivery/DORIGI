@@ -104,7 +104,24 @@ function TextFieldSet() {
 }
 
 function SingUpTitle() {
-    return <div>hello</div>;
+    const imageUrl =
+        "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg";
+    return (
+        <Box
+            style={{
+                backgroundImage: imageUrl,
+                width: "1200px",
+                height: "150px",
+            }}
+        >
+            <span style={{ fontFamily: "SpoqaBold", fontSize: "36px" }}>
+                DORIGI
+            </span>
+            <span style={{ fontFamily: "SpoqaThin", fontSize: "36px" }}>
+                Sign Up
+            </span>
+        </Box>
+    );
 }
 
 export default function SignUp() {
@@ -113,7 +130,8 @@ export default function SignUp() {
             container
             direction="column"
             justifyContent="flex-start"
-            alignItems="flex-start"
+            alignItems="center"
+            textAlign="center"
         >
             <Grid item>
                 <SingUpTitle />
