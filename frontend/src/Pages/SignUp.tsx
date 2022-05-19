@@ -59,8 +59,9 @@ function TextFieldSet() {
     >
       <Grid item>
         <TextField
-          required
           label="ID"
+          placeholder="아이디"
+          type="text"
           InputLabelProps={{
             shrink: true,
           }}
@@ -79,7 +80,7 @@ function TextFieldSet() {
       <Grid item>
         <TextField
           label="PASSWORD CHECK"
-          placeholder="비밀번호 재입력"
+          placeholder="비밀번호 확인"
           type="password"
           InputLabelProps={{
             shrink: true,
@@ -89,6 +90,8 @@ function TextFieldSet() {
       <Grid item>
         <TextField
           label="NICKNAME"
+          placeholder="닉네임"
+          type="text"
           InputLabelProps={{
             shrink: true,
           }}
@@ -106,6 +109,7 @@ function TextFieldSet() {
       <Grid item>
         <TextField
           label="PHONE NUMBER"
+          placeholder="전화 번호"
           type="number"
           InputLabelProps={{
             shrink: true,
@@ -115,6 +119,7 @@ function TextFieldSet() {
       <Grid item>
         <TextField
           label="ADDRESS"
+          placeholder="주소"
           InputLabelProps={{
             shrink: true,
           }}
@@ -162,7 +167,7 @@ function SingUpTitle() {
       </Grid>
     </Grid>
   );
-} //끝
+}
 
 const GridItem = styled(Grid)({
   width: "70%",
