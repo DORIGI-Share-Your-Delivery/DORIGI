@@ -66,6 +66,7 @@ function TextFieldSet() {
             shrink: true,
           }}
         />
+        <Button variant="contained">중복확인</Button>
       </Grid>
       <Grid item>
         <TextField
@@ -101,10 +102,12 @@ function TextFieldSet() {
         <TextField
           label="EMAIL"
           placeholder="이메일 주소"
+          type="text"
           InputLabelProps={{
             shrink: true,
           }}
         />
+        <Button variant="contained">중복확인</Button>
       </Grid>
       <Grid item>
         <TextField
@@ -192,7 +195,7 @@ export default function SignUp() {
       <GridItem item>
         <SetDistance />
       </GridItem>
-      <GridItem item></GridItem>
+      <GridItem item><Button variant="contained">회원가입</Button></GridItem>
     </Grid>
   );
 }
