@@ -1,19 +1,17 @@
 package dorigi.backend.controller;
 
-import dorigi.backend.domain.User;
+import dorigi.backend.domain.UserInfo;
 import dorigi.backend.service.UserService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.List;
-import java.util.Optional;
 
-@Controller
+// Circular path error
+// https://stackoverflow.com/questions/18813615/how-to-avoid-the-circular-view-path-exception-with-spring-mvc-test
+@RestController
 public class UserController {
-
-    private final String url = "user";
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -21,15 +19,8 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping(url + "")
-    @ResponseBody
-    public List<User> userList(){
+    @GetMapping ("/userinfo") // 상위 랭킹 정보를 가져옴
+    public List<UserInfo> getAllUsers(){
         return userService.findAllUsers();
-    }
-
-    @GetMapping(url + "UID")
-    @ResponseBody
-    public Optional<User> findByUID(@RequestParam("UID") Long uid) {
-        return userService.findOne(uid);
     }
 }
