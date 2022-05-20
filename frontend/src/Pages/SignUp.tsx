@@ -35,7 +35,7 @@ function valuetext(value: number) {
 
 function SetDistance() {
   return (
-    <Box sx={{ width: 400 }}>
+    <Box sx={{ width: 600 }}>
       <Slider
         aria-label="Custom marks"
         defaultValue={0}
@@ -151,7 +151,7 @@ function SingUpTitle() {
       container
       style={{
         backgroundImage: `url(${imageUrl})`,
-        width: "1700px",
+        width: "1280px",
         height: "150px",
       }}
     >
