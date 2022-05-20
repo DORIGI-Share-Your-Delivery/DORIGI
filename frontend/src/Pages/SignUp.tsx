@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TextField, Box, Slider, Button, Grid, styled } from "@mui/material/";
+import KakaoMap from "../Components/KakaoMap";
 
 const marks = [
   {
@@ -184,7 +185,7 @@ export default function SignUp() {
       justifyContent="flex-start"
       alignItems="center"
       textAlign="center"
-      spacing={2}
+      spacing={5}
     >
       <GridItem item>
         <SingUpTitle />
@@ -195,7 +196,10 @@ export default function SignUp() {
       <GridItem item>
         <SetDistance />
       </GridItem>
-      <GridItem item><Button variant="contained">회원가입</Button></GridItem>
+      <GridItem item>
+        <KakaoMap />
+        <Button variant="contained">회원가입</Button>
+      </GridItem>
     </Grid>
   );
 }
