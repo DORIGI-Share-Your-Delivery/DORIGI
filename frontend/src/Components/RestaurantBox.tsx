@@ -68,7 +68,11 @@ function RestaurantImage({ img }: Partial<Restaurant>) {
                         margin: "0 auto",
                     }}
                 >
-                    <img src={img} style={{ width: "100%", height: "100%" }} />
+                    <img
+                        src={img}
+                        alt=""
+                        style={{ width: "100%", height: "100%" }}
+                    />
                 </div>
             </Grid>
         </Grid>
