@@ -67,7 +67,15 @@ function TextFieldSet() {
             shrink: true,
           }}
         />
-        <Button variant="contained">중복확인</Button>
+        <Button
+          variant="contained"
+          sx={{
+            marginLeft: "1rem",
+            marginTop: "0.5rem",
+          }}
+        >
+          중복확인
+        </Button>
       </Grid>
       <Grid item>
         <TextField
@@ -108,7 +116,15 @@ function TextFieldSet() {
             shrink: true,
           }}
         />
-        <Button variant="contained">중복확인</Button>
+        <Button
+          variant="contained"
+          sx={{
+            marginLeft: "1rem",
+            marginTop: "0.5rem",
+          }}
+        >
+          중복확인
+        </Button>
       </Grid>
       <Grid item>
         <TextField
@@ -146,15 +162,30 @@ function SingUpTitle() {
     "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_1280.jpg";
   return (
     <Grid
+      container
       justifyContent="center"
       alignItems="center"
-      container
       style={{
-        backgroundImage: `url(${imageUrl})`,
+    //     position: "absolute",
         width: "1280px",
         height: "150px",
+    //     zIndex: -1,
+    //     opacity: 0.6,
+    //     backgroundSize: "cover",
+    //     backgroundImage: `url(${imageUrl})`,
       }}
     >
+      <div
+        style={{
+          position: "absolute",
+          width: "1280px",
+          height: "150px",
+          zIndex: -1,
+          opacity: 0.6,
+          backgroundSize: "cover",
+          backgroundImage: `url(${imageUrl})`,
+        }}
+      ></div>
       <Grid item>
         <span
           style={{
@@ -165,7 +196,12 @@ function SingUpTitle() {
         >
           DORIGI
         </span>
-        <span style={{ fontFamily: "SpoqaThin", fontSize: "36px" }}>
+        <span
+          style={{
+            fontFamily: "SpoqaThin",
+            fontSize: "36px",
+          }}
+        >
           Sign Up
         </span>
       </Grid>
@@ -198,7 +234,14 @@ export default function SignUp() {
       </GridItem>
       <GridItem item>
         <KakaoMap />
-        <Button variant="contained">회원가입</Button>
+        <Button
+          variant="contained"
+          sx={{
+            marginTop: "1rem",
+          }}
+        >
+          회원가입
+        </Button>
       </GridItem>
     </Grid>
   );
