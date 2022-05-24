@@ -1,259 +1,263 @@
-import * as React from "react";
-import { Grid, TextField, Button, Box } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import Paper from "@mui/material/Paper";
-import KaKaoMap from "../Components/KakoMap";
-import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
+import SearchBar from "../Components/SearchBar";
+import PostLists from "../Components/PostLists";
+import { Grid, Box, Typography, styled, Button, Stack } from "@mui/material";
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: "#F4F4F4",
-    textAlign: "center",
-}));
+interface Post {
+    postNum: number;
+    postName: string;
+    postWriter: string;
+    postTime: string;
+    postViews: number;
+}
 
-function FoodCategorySelection() {
+function ResultTitle({ title }: { title: string | null }) {
+    const SubTitle = styled(Typography)({
+        display: "inline",
+        fontSize: "24px",
+        color: "dimgray",
+        marginLeft: "20px",
+    });
+
     return (
-        <Grid container spacing={1}>
-            <Grid item xs={2}>
-                <p>분류 선택</p>
+        <Box sx={{ width: "900px" }}>
+            <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                margin={1}
+            >
+                <Grid item>
+                    <Typography display="inline" variant="h3">
+                        "{title}"
+                    </Typography>
+                    <SubTitle sx={{ fontSize: "36px" }}>게시글</SubTitle>
+                </Grid>
             </Grid>
-            <Grid item xs={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "90%",
-                        fontSize: "16px",
-                    }}
-                >
-                    한 식
-                </Button>
+        </Box>
+    );
+}
+
+function AddCategory() {
+    const height: number = 55;
+    const CategoryBtn = styled(Button)({
+        display: "inline",
+        width: 100,
+    });
+
+    return (
+        <Grid
+            container
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-end"
+            spacing={1}
+            sx={{
+                width: 1000,
+                height: height,
+                borderRadius: "10px",
+                backgroundColor: "gray",
+            }}
+        >
+            <Grid item marginLeft={1} xs={1} sx={{ height: height - 4 }}>
+                <Typography variant="h6">분류</Typography>
             </Grid>
-            <Grid item xs={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "90%",
-                        fontSize: "16px",
-                    }}
-                >
-                    분식
-                </Button>
-            </Grid>
-            <Grid item xs={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "90%",
-                        fontSize: "16px",
-                    }}
-                >
-                    중식
-                </Button>
-            </Grid>
-            <Grid item xs={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "90%",
-                        fontSize: "16px",
-                    }}
-                >
-                    일식
-                </Button>
-            </Grid>
-            <Grid item xs={2}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "90%",
-                        fontSize: "16px",
-                    }}
-                >
-                    양식
-                </Button>
+            <Grid item xs={10} sx={{ height: height }}>
+                <Stack direction="row" spacing={3}>
+                    {categories.map((value, i: number) => {
+                        return (
+                            <CategoryBtn variant="contained" key={i}>
+                                {value}
+                            </CategoryBtn>
+                        );
+                    })}
+                </Stack>
             </Grid>
         </Grid>
     );
 }
 
-function SetDeadLine() {
+function Board() {
+    const [selected, setSelected] = useState<string | null>("all");
+    const [search, setSearch] = useState<string | null>("");
+
+    const title: string | null = "신촌동";
+
     return (
-        <Grid container spacing={1}>
-            <Grid item xs={12} textAlign={"left"}>
-                <p style={{ marginLeft: "1.5%" }}>마감까지</p>
+        <Grid container justifyContent="center" spacing={3}>
+            <Grid item>
+                <SearchBar
+                    search={search}
+                    setSearch={setSearch}
+                    selected={selected}
+                    setSelected={setSelected}
+                    height={150}
+                />
             </Grid>
-            <Grid item xs={12}>
-                <Item
-                    style={{
-                        backgroundColor: "#ffffff",
-                        margin: "1%",
-                        marginTop: "0",
-                    }}
-                >
-                    <TextField
-                        id="standard-basic"
-                        label="시간 입력"
-                        variant="standard"
-                        style={{ marginBottom: "5px", width: "98%" }}
-                    ></TextField>
-                </Item>
+            <Grid item>
+                <ResultTitle title={title} />
+            </Grid>
+            <Grid item>
+                <AddCategory />
+            </Grid>
+            <Grid item>
+                <PostLists posts={posts} />
             </Grid>
         </Grid>
     );
 }
 
-function PricePersonnelSelection() {
-    return (
-        <Grid container spacing={1}>
-            <Grid item xs={1}>
-                <p>목표금액</p>
-            </Grid>
-            <Grid item xs={5}>
-                <Item
-                    style={{ backgroundColor: "#ffffff", marginBottom: "1%" }}
-                >
-                    <TextField
-                        variant="standard"
-                        label="목표금액을 입력해주십시오"
-                        size="small"
-                        style={{ marginBottom: "5px", width: "95%" }}
-                    ></TextField>
-                </Item>
-            </Grid>
-            <Grid item xs={1}>
-                <p>목표인원</p>
-            </Grid>
-            <Grid item xs={5}>
-                <Item
-                    style={{ backgroundColor: "#ffffff", marginBottom: "1%" }}
-                >
-                    <TextField
-                        variant="standard"
-                        label="목표인원을 입력해주십시오"
-                        size="small"
-                        style={{ marginBottom: "5px", width: "95%" }}
-                    ></TextField>
-                </Item>
-            </Grid>
-        </Grid>
-    );
-}
+const posts: Post[] = [
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+    {
+        postNum: 123,
+        postName: "hello",
+        postWriter: "ryokuman",
+        postTime: "11:12",
+        postViews: 1,
+    },
+];
 
-function RestaurantSelection() {
-    return (
-        <Grid container spacing={1}>
-            <Grid item xs={12} textAlign={"left"}>
-                <p style={{ marginLeft: "1.5%" }}>가게 설정</p>
-            </Grid>
-            <Grid item xs={12}>
-                <Item
-                    style={{
-                        backgroundColor: "#ffffff",
-                        margin: "1%",
-                        marginTop: "0",
-                    }}
-                >
-                    <Grid container spacing={1}>
-                        <Grid item xs={11} marginLeft={1.5}>
-                            <TextField
-                                id="standard-basic"
-                                label="주소, 음식 검색"
-                                variant="standard"
-                                style={{ width: "100%" }}
-                            />
-                        </Grid>
-                        <Grid item xs marginRight={1.5}>
-                            <Button>
-                                <SearchIcon
-                                    fontSize="large"
-                                    htmlColor="#93959b"
-                                />
-                            </Button>
-                        </Grid>
-                        <Grid item xs={12} marginLeft={1.5} marginRight={1.5}>
-                            <KaKaoMap></KaKaoMap>
-                        </Grid>
-                    </Grid>
-                </Item>
-            </Grid>
-        </Grid>
-    );
-}
+const categories: string[] = ["#일식", "#중식", "#양식", "#한식"];
 
-function PostingPage() {
-    return (
-        <Grid container spacing={2}>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <TextField
-                        label="제목 입력"
-                        variant="standard"
-                        size="medium"
-                        style={{
-                            marginBottom: "5px",
-                            marginLeft: "5px",
-                            width: "98%",
-                        }}
-                    />
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <FoodCategorySelection />
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <RestaurantSelection />
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <PricePersonnelSelection />
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <SetDeadLine />
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Item elevation={0}>
-                    <TextField
-                        id="standard-basic"
-                        label="기타 사항 작성"
-                        variant="standard"
-                        style={{ marginBottom: "1%", width: "98%" }}
-                    ></TextField>
-                </Item>
-            </Grid>
-            <Grid item xs={12}>
-                <Button
-                    variant="contained"
-                    style={{
-                        backgroundColor: "#de7164",
-                        width: "10%",
-                        textAlign: "center",
-                        margin: "0 auto",
-                    }}
-                >
-                    작성완료
-                </Button>
-            </Grid>
-        </Grid>
-    );
-}
-
-export default function Board() {
-    return (
-        <div style={{ backgroundImage: "../Assets/images/background" }}>
-            <Box style={{ width: "1015px", margin: "0 auto" }}>
-                <PostingPage />
-            </Box>
-        </div>
-    );
-}
+export default Board;

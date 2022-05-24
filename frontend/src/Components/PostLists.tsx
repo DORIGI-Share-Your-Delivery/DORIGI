@@ -1,5 +1,8 @@
 import { Grid, Box } from "@mui/material";
 
+// 검색한 포스팅들을 띄워주는 컴포넌트
+// props : Post[]
+
 interface Post {
     postNum: number;
     postName: string;
@@ -31,7 +34,11 @@ function PostLists({ posts }: IpostListsinterface) {
                             <Grid item xs textAlign="center">
                                 <a
                                     href={url + post.postNum}
-                                    style={{ textDecoration: "none" }}
+                                    style={{
+                                        textDecoration: "none",
+                                        color: "black",
+                                        fontFamily: "SpoqaRegular",
+                                    }}
                                 >
                                     {post.postName}
                                 </a>
