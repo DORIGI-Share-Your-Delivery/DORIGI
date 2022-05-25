@@ -94,6 +94,7 @@ function Header(props: { sections: section[] }) {
                             <Button
                                 variant="contained"
                                 style={{ marginRight: "10px" }}
+                                href="http://localhost:3000/signup"
                             >
                                 signup
                             </Button>
