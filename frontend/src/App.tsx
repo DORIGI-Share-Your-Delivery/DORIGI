@@ -13,6 +13,7 @@ import Header from "./Components/Header";
 import Login from "./Pages/Login";
 import Search from "./Pages/Search";
 import ErrorPage from "./Pages/ErrorPage";
+import SignUp from "./Pages/SignUp";
 
 const theme = createTheme();
 
@@ -41,6 +42,7 @@ function App() {
                         <Route path="/chat" element={<Chatting />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/restaurant" element={<Restaurant />} />
+                        <Route path="/signUp" element={<SignUp />} />
                         <Route path="/search" element={<Search />}>
                             <Route
                                 path="/search/:selectedValue/:searchValue"
