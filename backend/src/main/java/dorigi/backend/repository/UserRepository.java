@@ -1,17 +1,13 @@
 package dorigi.backend.repository;
 
-import dorigi.backend.domain.User;
+import dorigi.backend.domain.UserInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
-public interface UserRepository {
+public interface UserRepository extends JpaRepository<UserInfo,Long> {
 
-    User save (User user);
-    Optional<User> findByUId (Long id);
-    Optional<User> findById (String id);
-    Optional<User> findByNickName(String nickname);
-    List<User> findAll ();
+    List<UserInfo> findAll ();
 }
