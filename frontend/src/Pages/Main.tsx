@@ -2,7 +2,7 @@ import "../App.css";
 
 import SearchBar from "../Components/SearchBar";
 import RestaurantBox from "../Components/RestaurantBox";
-import KaKaoMap from "../Components/KakoMap";
+import KaKaoMap from "../Components/KakaoMap";
 
 import { Grid, Typography, styled, Button } from "@mui/material";
 import { useState } from "react";
