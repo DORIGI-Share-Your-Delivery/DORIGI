@@ -8,7 +8,6 @@ interface Post {
     postName: string;
     postWriter: string;
     postTime: string;
-    postViews: number;
 }
 
 interface IpostListsinterface {
@@ -48,9 +47,6 @@ function PostLists({ posts }: IpostListsinterface) {
                             </Grid>
                             <Grid item xs={1} textAlign="center">
                                 {post.postTime}
-                            </Grid>
-                            <Grid item xs={1} textAlign="center">
-                                {post.postViews}
                             </Grid>
                         </Grid>
                         <hr />
