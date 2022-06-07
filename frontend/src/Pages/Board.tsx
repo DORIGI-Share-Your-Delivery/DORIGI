@@ -8,7 +8,6 @@ interface Post {
     postName: string;
     postWriter: string;
     postTime: string;
-    postViews: number;
 }
 
 function ResultTitle({ title }: { title: string | null }) {
@@ -114,147 +113,126 @@ const posts: Post[] = [
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
     {
         postNum: 123,
         postName: "hello",
         postWriter: "ryokuman",
         postTime: "11:12",
-        postViews: 1,
     },
 ];
 
