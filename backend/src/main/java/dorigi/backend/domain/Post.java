@@ -3,6 +3,8 @@ package dorigi.backend.domain;
 import com.sun.istack.NotNull;
 import org.springframework.data.annotation.Id;
 
+import java.util.Date;
+
 public class Post {
 
     @Id
@@ -16,13 +18,13 @@ public class Post {
     String postWriter;
 
     @NotNull
-    String postTime;
+    Date postTime;
 
     @NotNull
     int status; // 0:임박 1:마감 2:normal
 
     //constructor
-    public Post(int postNum, String postName, String postWriter, String postTime) {
+    public Post(int postNum, String postName, String postWriter, Date postTime) {
         this.postNum = postNum;
         this.postName = postName;
         this.postWriter = postWriter;
@@ -55,11 +57,11 @@ public class Post {
         this.postWriter = postWriter;
     }
 
-    public String getPostTime() {
+    public Date getPostTime() {
         return postTime;
     }
 
-    public void setPostTime(String postTime) {
+    public void setPostTime(Date postTime) {
         this.postTime = postTime;
     }
 }
