@@ -10,4 +10,6 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<UserInfo,Long> {
 
     List<UserInfo> findAll ();
+
+    UserInfo findByUserId(int userId);//user id로 검색하면 결과는 항상 하나 -> 리스트아님
 }
