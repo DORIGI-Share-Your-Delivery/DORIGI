@@ -15,7 +15,7 @@ public class BoardsInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //JPA 사용시 필요
     @Column(name = "board_id")
-    private String boardId;
+    private int boardId;
 
     private String content;
 
@@ -46,11 +46,11 @@ public class BoardsInfo {
     @Temporal(TemporalType.TIMESTAMP)
     Date deadline;
 
-    public String getBoardId() {
+    public int getBoardId() {
         return boardId;
     }
 
-    public void setBoardId(String boardId) {
+    public void setBoardId(int boardId) {
         this.boardId = boardId;
     }
 
