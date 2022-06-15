@@ -15,6 +15,7 @@ import Search from "./Pages/Search";
 import ErrorPage from "./Pages/ErrorPage";
 import SignUp from "./Pages/SignUp";
 import AddPost from "./Pages/AddPost";
+import PostView from "./Pages/PostView";
 
 const theme = createTheme();
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="/restaurant" element={<Restaurant />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/post" element={<AddPost />} />
+            <Route path="/postview" element={<PostView />} />
             <Route path="/search" element={<Search />}>
               <Route
                 path="/search/:selectedValue/:searchValue"
