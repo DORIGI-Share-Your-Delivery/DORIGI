@@ -248,7 +248,7 @@ function PostingPage() {
     );
 }
 
-export default function Board() {
+export default function AddPost() {
     return (
         <div style={{ backgroundImage: "../Assets/images/background" }}>
             <Box style={{ width: "1015px", margin: "0 auto" }}>
